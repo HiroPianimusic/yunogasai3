@@ -30,14 +30,31 @@ client.on("message", async message => {
     // if the user is not on db add the user and change his values to 0
   const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     
   if (message.content.startsWith(`${PREFIX}ping`)) {
     
-      let botMsg = await message.channel.send("Pinging...")
+      let botMsg = await message.channel.send("Pinging...")
 
 
   botMsg.edit({ embed: {
-    title: " Ping",
+    title: "🏓Ping",
     description: [
       "**Server**: `" + (botMsg.createdAt - message.createdAt) + "ms`",
       "**API**: `" + Math.round(client.ping) + "ms`",
@@ -94,6 +111,8 @@ bot.on("message", async message => {
 });
 
 
+
+
 bot.on("warn", console.warn);
 
 bot.on("error", console.error);
@@ -120,6 +139,71 @@ bot.on("message", function(message) {
   var command = args[0].toLowerCase();
 
   //command
+  
+  if (message.content.startsWith(`${PREFIX}hsiwhdieje`)) {
+    let embed = new Discord.RichEmbed()
+    .setThumbnail("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRqOvoyRw4tPBdUanyF_NkDCG8yK1amivXsKg&usqp=CAU")
+    .setTitle("List Radio Yuno")
+    .setDescription("``radiosad, radiolofi, radiosleep``")
+    .setColor(COLOR)
+    .setTimestamp()
+    message.channel.send(embed);
+  }
+    
+  if (message.content.startsWith(`${PREFIX}jdiejdd`)) {
+    message.channel.send("Success Play Radio Lofi")
+    const { voiceChannel } = message.member;
+
+		if (!voiceChannel) {
+			return message.reply('please join a voice channel first!').then(message => {
+        message.delete(10000);
+      })
+		}
+
+		voiceChannel.join().then(connection => {
+			const stream = ytdl('https://youtu.be/IjMESxJdWkg', { filter: 'audioonly' });
+			const dispatcher = connection.playStream(stream);
+
+			dispatcher.on('end', () => voiceChannel.leave());
+		});
+  }
+    
+  if (message.content.startsWith(`${PREFIX}hdusbjdbeje`)) {
+    message.channel.send("Success Play Radio Sad")
+    const { voiceChannel } = message.member;
+
+		if (!voiceChannel) {
+			return message.reply('please join a voice channel first!').then(message => {
+        message.delete(10000);
+      })
+		}
+
+		voiceChannel.join().then(connection => {
+			const stream = ytdl('https://youtu.be/BbQM9UbQjFI', { filter: 'audioonly' });
+			const dispatcher = connection.playStream(stream);
+
+			dispatcher.on('end', () => voiceChannel.leave());
+		});
+  }
+    
+  if (message.content.startsWith(`${PREFIX}heiwhhdhddiwh`)) {
+    message.channel.send("Succes Play Radio Sleep")
+    const { voiceChannel } = message.member;
+
+		if (!voiceChannel) {
+			return message.reply('please join a voice channel first!').then(message => {
+        message.delete(10000);
+      })
+		}
+
+		voiceChannel.join().then(connection => {
+			const stream = ytdl('https://youtu.be/oBGx6V3luEk', { filter: 'audioonly' });
+			const dispatcher = connection.playStream(stream);
+
+			dispatcher.on('end', () => voiceChannel.leave());
+		});
+  }
+    
 
   if (command === "bot2" || command === "infobot2" || command === "status2" || command === "stats2") {
     let uptime = bot.uptime;
